@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { TodoModule } from './todos/todo.module';
@@ -17,6 +18,8 @@ import { environment } from 'src/environments/environment';
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     TodoModule,
     StoreModule.forRoot({count: todoReducer}),
     StoreDevtoolsModule.instrument({
