@@ -21,7 +21,7 @@ import { environment } from 'src/environments/environment';
     FormsModule,
     ReactiveFormsModule,
     TodoModule,
-    StoreModule.forRoot({count: todoReducer}),
+    StoreModule.forRoot({todos: todoReducer}),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production
