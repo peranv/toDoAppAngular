@@ -1,7 +1,7 @@
 import { state } from '@angular/animations';
 import { createReducer, on } from '@ngrx/store';
 import { Todo } from './models/todo.model';
-import { crear, toggle, editar } from './todo.actions';
+import { crear, toggle, editar, borrar } from './todo.actions';
 
 export const estdoInicial: Todo[] = [
     new Todo('Salvar al mundo'),
@@ -13,6 +13,7 @@ export const estdoInicial: Todo[] = [
  const _todoReducer = createReducer(
   estdoInicial,
   on(crear, (state, {texto}) => [...state, new Todo(texto)]),
+  on(borrar, (state, {id}) => state.filter(todo=>todo.id !==id)),
   on(toggle, (state, {id}) => {
     return state.map(todo=>{
 
