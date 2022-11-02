@@ -1,7 +1,7 @@
 import { state } from '@angular/animations';
 import { createReducer, on } from '@ngrx/store';
 import { Todo } from './models/todo.model';
-import { crear, toggle, editar, borrar } from './todo.actions';
+import { crear, toggle, editar, borrar,toggleAll } from './todo.actions';
 
 export const estdoInicial: Todo[] = [
     new Todo('Salvar al mundo'),
@@ -40,6 +40,15 @@ export const estdoInicial: Todo[] = [
         }else{
             return todo;
         }
+     
+    })
+  }),
+  on(toggleAll, (state, {completado}) => {
+    return state.map(todo=>{
+            return {
+                ...todo,
+                completado: completado
+              }
      
     })
   }),
